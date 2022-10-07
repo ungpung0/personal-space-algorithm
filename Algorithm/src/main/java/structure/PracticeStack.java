@@ -1,64 +1,65 @@
 package structure;
 
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.Stack;
 
 public class PracticeStack {
 
     // Stack Insert Method.
     private void stackInsert(Stack stack, int[] values) {
+        System.out.println("# stackInsert method called");
         for(int value : values)
             stack.push(value);
+        System.out.println("# stackInsert method ended");
     }
 
     // Stack Read Method.
     private void stackRead(Stack stack) {
-        System.out.print("RESULT: ");
-        // read first stack.
-        System.out.print("FIRST[" + stack.firstElement() + "], ");
-        // read last stack.
-        System.out.print("LAST[" + stack.lastElement() + "], ");
-        // read stack all.
+        System.out.println("# stackRead method called");
+
+        // print first & last elements.
+        System.out.println("# first=" + stack.firstElement());
+        System.out.println("# last=" + stack.lastElement());
+
+        // print all elements.
         Iterator iterator = stack.iterator();
-        System.out.print("ALL");
+        System.out.println("# all=");
         while(iterator.hasNext())
-            System.out.print("[" + iterator.next() + "]");
-        System.out.println(".");
+            System.out.print(iterator.next() + " ");
+
+        System.out.println("# stackRead method ended");
     }
 
     // Stack Remove Method.
     private void stackRemove(Stack stack) {
-        System.out.print("RESULT: ");
-        // remove stack once.
-        System.out.println("DELETE[" + stack.pop() + "]");
-        // remove all stacks.
+        System.out.println("# stackRemove method called");
+        stack.pop();
+        System.out.println("# last element removed");
         stack.clear();
+        System.out.println("# all elements removed");
+        System.out.println("# stackRemove method ended");
     }
 
     // Stack Public Method.
     public void stackAccess(int[] values) {
+        // print start message
         System.out.println("##### STACK START #####");
-        // stack creation process.
-        System.out.println("SYSTEM: Stack Creation Process..");
+
+        // stack creation process
+        System.out.println("# stack type declared");
         Stack<Integer> stack = new Stack<>(); // int type stack declaration.
-        System.out.println("SYSTEM: Stack Creation Complete..");
 
-        // call stackInsert Method.
-        System.out.println("SYSTEM: Stack Insert Process..");
+        // call stackInsert method
         stackInsert(stack, values);
-        System.out.println("SYSTEM: Stack Insert Complete..");
 
-        // call stackRead Method.
-        System.out.println("SYSTEM: Stack Read Process..");
+        // call stackRead method
         stackRead(stack);
-        System.out.println("SYSTEM: Stack Read Complete..");
 
-        // call stackRemove Method.
-        System.out.println("SYSTEM: Stack Remove Process..");
+        // call stackRemove method
         stackRemove(stack);
-        System.out.println("SYSTEM: Stack Remove Complete..");
-        System.out.println("##### STACK QUIT #####");
+
+        // print end message
+        System.out.println("##### STACK ENDED #####");
     }
 
 }
